@@ -1,14 +1,21 @@
 <head>
 	<title>whiteblock</title>
 	<link type="text/css" rel="stylesheet" href="styles/xcode.css">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="css/whiteboard.css">
 	<script src="js/lib/highlight.pack.js"></script>
 </head>
 
 <body>
-	<pre>
-		<code class="java">{{> output}}</code>
-	</pre>
-<hr>
-{{> input}}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				{{> output}}
+			</div>
+			<div class="col-md-6">
+				{{> input}}
+			</div>
+		</div>
+	</div>
 </body>
 
