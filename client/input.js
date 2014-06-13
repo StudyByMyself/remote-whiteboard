@@ -1,10 +1,9 @@
+//设置默认编辑状态
+Session.set("DocumentModifyStatus",false);
+
 Template.input.events({
 	"keyup textarea":function(e,t){
-		if(!Inputs.findOne()) return;
-		var script = e.currentTarget.value;
-		var _id = Inputs.findOne()._id;
-		Session.set('input-script',script);
-		Inputs.update(_id,{$set:{script:script}});
+        InputsDao.update(e.currentTarget.value);
 	},
 	"keydown textarea":function(e,t){
 		var keyCode = e.keyCode || e.which;
@@ -21,13 +20,25 @@ Template.input.events({
 		}
 	},
 	"click button#save":function(event,template){
-		var script = Session.get('input-script');
+		var script = InputsDao.get();
 		if(!script || script.replace(/(\ )+/g,"").length <  15){
 			alert("The input text is too short!")
 			return;
 		}
-		InputsStrorage.insert({script:script,time:new Date().getTime()})
-	}
+        if(!Session.get('DocumentModifyStatus')){
+            InputsStorageDao.create(script)
+        }else{
+            var _id = Session.get('input-script-id');
+            if(!_id){
+                return;
+            }
+            InputsStorageDao.update(_id,script);
+        }
+	},
+    "click button#new":function(){
+        InputsDao.set('');
+        Session.set("DocumentModifyStatus",false);
+    }
 })
 Template.input.script = function(){
 	return Session.get('input-script')

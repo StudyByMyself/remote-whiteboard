@@ -4,4 +4,20 @@
 			<code class="java">{{{output}}}</code>
 		</pre>
 	</div>
+    <div>
+        <table class="table">
+            <tbody>
+            {{#each codes}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{time}}</td>
+                <td>
+                    <button class="btn" id="edit">编辑</button>
+                    <button class="btn" id="delete">删除</button>
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
 </template>
