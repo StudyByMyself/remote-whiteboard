@@ -14,6 +14,8 @@ InputsDao.get = function(){
 }
 
 InputsDao.set = function(script){
-    var _id = Inputs.findOne()._id;
+    var input = Inputs.findOne();
+    if(!input) return;
+    var _id = input._id;
     Inputs.update(_id,{$set:{script:script}});
 }

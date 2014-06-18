@@ -6,3 +6,6 @@
 standard-app-packages
 insecure
 jquery
+iron-router
+random
+underscore
