@@ -1,13 +1,13 @@
 <template name="output">
 	<div class="well output-well">
 		<pre>
-			<code class="java">{{{output}}}</code>
+			<code class="java">{{{codeToLight script type}}}</code>
 		</pre>
 	</div>
     <div>
         <table class="table">
             <tbody>
-            {{#each codes}}
+            {{#each subScripts}}
             <tr>
                 <td>{{_id}}</td>
                 <td>{{time}}</td>

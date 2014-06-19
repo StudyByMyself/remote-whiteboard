@@ -1,12 +1,6 @@
 Router.map(function(){
-	this.route('home',{
-		path:'/',
+	this.route('scripts',{
+		path:'/scripts',
 		where:'server'
 	});
-})
-
-HomeController =  RouteController.extend({
-	action:function(){
-        InitInputAndOutput.do(this.request,this.response);
-	}
 })

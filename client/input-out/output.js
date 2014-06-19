@@ -1,9 +1,10 @@
-Template.output.output = function(){
-	return hljs.highlight('java',"\n"+InputsDao.get()).value
+Template.output.codeToLight = function(string,type){
+    type = type || 'java';
+    return hljs.highlight(type,"\n"+string).value
 }
 
 Template.output.codes = function(){
-    return InputsStorage.find({}).fetch();
+    return null;
 }
 
 Template.output.events({
@@ -13,7 +14,6 @@ Template.output.events({
         InputsDao.set(this.script);
     },
     "click #delete":function(){
-        InputsStorageDao.delete(this._id);
         if(this._id === Session.get('input-script-id')){
             Session.set("DocumentModifyStatus",false);
             InputsDao.set('');

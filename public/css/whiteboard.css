@@ -1,7 +1,26 @@
 .output-well{
-	padding: 0px;
+    height:600px;
+    max-height: 600px;
+    overflow: auto;
+    margin-top: 20px;
 }
 
 pre {
 	border:0;
+}
+
+.input-well{
+    width: auto;
+    padding: 0;
+    height:600px;
+    max-height: 600px;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+textarea.input-textarea {
+    width: 98%;
+    height: 600px;
+    max-height: 600px;
+    overflow: auto;
 }
