@@ -18,7 +18,7 @@ IndexController = RouteController.extend({
     template:"Input-Output",
     layoutTemplate:"main-layout",
     waitOn: function () {
-        return Meteor.subscribe('inputs',this.params.id);
+        return [Meteor.subscribe('inputs',this.params.id),Meteor.subscribe('sub_inputs',this.params.id)];
     },
     data:function(){
         return Inputs.findOne({webId:this.params.id});

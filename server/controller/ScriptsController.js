@@ -22,7 +22,7 @@ var isNormalVisit = function(ip){
 //生成记录
 var generateNewRecord = function(ip){
     var webId = Random.id();
-    Inputs.insert({webId:webId,ip:ip,time:new Date().getTime(),script:"",subScripts:[],type:"java"},function(error,_id){
+    Inputs.insert({webId:webId,ip:ip,timestamp:new Date().getTime(),script:"",type:"java"},function(error,_id){
         console.log("insert",_id);
     })
     return webId;

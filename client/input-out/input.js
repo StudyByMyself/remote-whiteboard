@@ -17,7 +17,11 @@ Template.input.events({
 		}
 	},
 	"click button#save":function(event,template){
-        InputsDao.insertSubScript(this._id,this.script);
+        var current = Router.current();
+        if(!this.script || this.script.length === 0){
+            return;
+        }
+        InputsDao.insertSubScript(current.params.id,this.script);
 	},
     "click button#new":function(){
     }

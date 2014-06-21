@@ -16,18 +16,13 @@ InputsDao.update = function(_id,script,callback){
       });
 }
 
-InputsDao.insertSubScript = function(_id,script,callback){
-    if(!Inputs.findOne(_id)){
-        callback && callback(MessageBuild.build({type:"collection_empty"}));
-        return;
-    }
+InputsDao.insertSubScript = function(webId,script,callback){
     var item = {
         script:script,
-        time:new Date().getTime(),
-        _id:Random.id(10)
+        timestamp:new Date().getTime(),
+        webId:webId
     }
-    console.log(item)
-    Inputs.update(_id,{$push:{subScripts:item}},function(){
+    SubInputs.insert(item,function(){
         callback && callback();
     })
 }
