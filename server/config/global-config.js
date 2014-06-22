@@ -4,7 +4,8 @@
  */
 var map = {
     "scripts":{
-        "ip-visit-limit-time":5,//每个IP每分钟访问限制.如果为0，则无限制。
+        "ip-visit-limit-time":5,//每个IP每分钟访问限制.不能为0
+        "ip-visit-limit-time-unit":60*1000,////每个IP单位时间访问限制.默认为60s，和上面的组合使用
         "ip-visit-limit-max":1000,//每个IP生成记录总数限制，超过总记录则删除最旧一条记录。
         "subscript":{
             "unsignal":{//未登陆用户限制

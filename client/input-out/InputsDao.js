@@ -4,9 +4,6 @@
 InputsDao = function(){};
 
 InputsDao.update = function(_id,script,callback){
-//    if(!Inputs.findOne()) return;
-//    var _id = Inputs.findOne()._id;
-//    Inputs.update(_id,{$set:{script:script}});
       if(!Inputs.findOne(_id)){
           callback && callback(MessageBuild.build({type:"collection_empty"}));
           return;

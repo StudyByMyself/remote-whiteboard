@@ -4,15 +4,17 @@ var isNormalVisit = function(ip){
     if(ip == "127.0.0.1"){
         return true;
     }
-    //获取最近5条于该IP相关的记录
-    var inputs = Inputs.find({ip:ip},{sort:{time:-1},limit:5}).fetch();
-    if(inputs.length < 5 ){
+    var limit = GlobalConfigure.get("scripts.ip-visit-limit-time");
+    var limit_unit =  GlobalConfigure.get("ip-visit-limit-time-unit");
+    //获取最近limit条于该IP相关的记录
+    var inputs = Inputs.find({ip:ip},{sort:{timestamp:-1},limit:limit}).fetch();
+    if(inputs.length < limit ){
         return true;
     }
     var now = new Date().getTime();
-    var input = inputs[4];
-    //如果最后一条记录的时间与现在时间大于60秒.即1分钟内产生的数据小于5条
-    if(now - input.time > 60*1000){
+    var input = inputs[limit-1];
+    //如果最后一条记录的时间与现在时间大于limit_unit毫秒.即limit_unit毫秒内产生的数据小于limit条
+    if(now - input.time > limit_unit){
         return true;
     }
     return false;
