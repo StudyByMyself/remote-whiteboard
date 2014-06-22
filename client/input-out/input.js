@@ -12,7 +12,7 @@ Template.input.events({
 			$(_this).val($(_this).val().substring(0, start)
 						+ "\t"
 						+ $(_this).val().substring(end));
-			$(_this).get(0).selectionStart =
+			//$(_this).get(0).selectionStart =
 			$(_this).get(0).selectionEnd = start + 1;
 		}
 	},

@@ -26,3 +26,12 @@ InputsDao.insertSubScript = function(webId,script,callback){
         callback && callback();
     })
 }
+
+InputsDao.removeSubScript = function(webIds,callback){
+    Meteor.call("Inputs",{
+        method:"DELETE",
+        args:[webIds]
+    },function(error,result){
+
+    })
+}
