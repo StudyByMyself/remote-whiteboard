@@ -3,5 +3,5 @@ Meteor.publish("inputs", function (webId) {
 });
 
 Meteor.publish('sub_inputs',function(webId){
-    return SubInputs.find({webId:webId},{sort:{timestamp:-1}})
+    return SubInputs.find({webId:webId},{sort:{update_timestamp:-1}})
 })

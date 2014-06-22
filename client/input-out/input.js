@@ -18,11 +18,28 @@ Template.input.events({
 	},
 	"click button#save":function(event,template){
         var current = Router.current();
+        var web_id = current.params.id;
         if(!this.script || this.script.length === 0){
             return;
         }
-        InputsDao.insertSubScript(current.params.id,this.script);
+        var title = template.find("#title").value;
+        var subscript_id = this.subscript_id;
+        if(SubInputs.findOne(subscript_id)){
+            InputsDao.updateSubScript(subscript_id,this.script,title);
+        }else{
+            InputsDao.insertSubScript(web_id,this.script,title);
+        }
+
 	},
     "click button#new":function(){
+        InputsDao.new(this._id)
     }
 })
+
+Template.input.getTitle = function(subid){
+    var sub = SubInputs.findOne(subid);
+    if(!sub){
+        return ''
+    }
+    return sub.title;
+}

@@ -15,7 +15,9 @@ var map = {
             "signal":{ //已登陆用户限制子元素为50条
                 "count":50, //限制子元素为50条
                 "content-max-length":3000 //每个文件的最长记录
-            }
+
+            },
+            "title-length":20 //标题长度
         }
     }
 }

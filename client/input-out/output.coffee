@@ -4,10 +4,17 @@ Template.output.codeToLight = (string,type) ->
 
 
 Template.output.events
-	"click #edit": () ->
+	"click #edit": (e,template) ->
+		parent_id = template.data._id
+		_this = @
+		Inputs.update parent_id,
+			$set:
+				script: _this.script,
+				title: _this.title,
+				subscript_id: _this._id
 	"click #delete": () ->
-		console.log this._id
-		InputsDao.removeSubScript([this._id])
+		_this = @
+		InputsDao.removeSubScript [_this._id]
 
 Template.output.subScripts = () ->
-	SubInputs.find().fetch()
+	SubInputs.find({}).fetch()
