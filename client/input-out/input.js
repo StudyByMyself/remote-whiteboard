@@ -31,8 +31,11 @@ Template.input.events({
         }
 
 	},
-    "click button#new":function(){
+    "click button#new": function(){
         InputsDao.new(this._id)
+    },
+    "click button#sync": function(e,t){
+        t.find("#input-area").value = this.script
     }
 })
 

@@ -10,7 +10,6 @@ Template.output.events
 		Inputs.update parent_id,
 			$set:
 				script: _this.script,
-				title: _this.title,
 				subscript_id: _this._id
 	"click #delete": () ->
 		_this = @
