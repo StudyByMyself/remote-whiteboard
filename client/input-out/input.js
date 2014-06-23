@@ -24,10 +24,11 @@ Template.input.events({
         }
         var title = template.find("#title").value;
         var subscript_id = this.subscript_id;
+        var script = template.find("#input-area").value;
         if(SubInputs.findOne(subscript_id)){
-            InputsDao.updateSubScript(subscript_id,this.script,title);
+            InputsDao.updateSubScript(subscript_id,script,title);
         }else{
-            InputsDao.insertSubScript(web_id,this.script,title);
+            InputsDao.insertSubScript(web_id,script,title);
         }
 
 	},
