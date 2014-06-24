@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/server/router.js" />
+        <item url="file://$PROJECT_DIR$/client/function/input-out/output.js" />
+        <item url="file://$PROJECT_DIR$/client/lib/remote.js" />
+        <item url="file://$PROJECT_DIR$/server/router.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/server/remote-methods/Inputs.js" />
+      <root url="file://$PROJECT_DIR$/server/remote-methods/Inputs.js" />
+      <root url="file://$PROJECT_DIR$/server/router.js" />
+      <root url="file://$PROJECT_DIR$/client/function/input-out/output.js" />
+      <root url="file://$PROJECT_DIR$/client/lib/remote.js" />
+      <root url="file://$PROJECT_DIR$/server/router.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

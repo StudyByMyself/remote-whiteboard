@@ -50,11 +50,9 @@ InputsDao.updateSubScript = function(subId,script,title){
 
 
 InputsDao.removeSubScript = function(webIds,callback){
-    Meteor.call("Inputs",{
-        method:"DELETE",
-        args:[webIds]
-    },function(error,result){
-
+    callback = callback || function(){}
+    Remote.call("Inputs.DELETE",[webIds],function(data){
+      callback(data)
     })
 }
 
@@ -66,4 +64,8 @@ InputsDao.new = function(_id){
             subscript_id:""
         }
     },function(){});
+}
+
+InputsDao.export = function(_id){
+  window.open("/scripts/"+_id+"/export",false)
 }

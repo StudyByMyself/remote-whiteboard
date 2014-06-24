@@ -2,18 +2,18 @@ InputsRemote = () ->
 
 # 移除一组子条目
 InputsRemote.removeSubScriptGroups = (subIds) ->
-	SubInputs.remove
-		_id:
-			$in:subIds
+  SubInputs.remove
+    _id:
+      $in:subIds
 
 # 测试
 InputsRemote.find = () ->
-	arguments
+  arguments
 
 InputsRemote.update = () ->
-	arguments
+  arguments
 
 InputsRemote.insert = () ->
-	arguments
+  arguments
 
 @InputsRemote = InputsRemote

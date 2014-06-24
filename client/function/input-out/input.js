@@ -17,26 +17,32 @@ Template.input.events({
 		}
 	},
 	"click button#save":function(event,template){
-        var current = Router.current();
-        var web_id = current.params.id;
-        if(!this.script || this.script.length === 0){
-            return;
-        }
-        var title = template.find("#title").value;
-        var subscript_id = this.subscript_id;
-        var script = template.find("#input-area").value;
-        if(SubInputs.findOne(subscript_id)){
-            InputsDao.updateSubScript(subscript_id,script,title);
-        }else{
-            InputsDao.insertSubScript(web_id,script,title);
-        }
-
+      var current = Router.current();
+      var web_id = current.params.id;
+      if(!this.script || this.script.length === 0){
+          return;
+      }
+      var title = template.find("#title").value;
+      var subscript_id = this.subscript_id;
+      var script = template.find("#input-area").value;
+      if(SubInputs.findOne(subscript_id)){
+          InputsDao.updateSubScript(subscript_id,script,title);
+      }else{
+          InputsDao.insertSubScript(web_id,script,title);
+      }
 	},
     "click button#new": function(){
         InputsDao.new(this._id)
     },
     "click button#sync": function(e,t){
         t.find("#input-area").value = this.script
+    },
+    "click button#saveas": function(e,t){
+      var script = t.find("#input-area").value;
+      var title = t.find("#title").value;
+      var current = Router.current();
+      var web_id = current.params.id;
+      InputsDao.insertSubScript(web_id,script,title);
     }
 })
 

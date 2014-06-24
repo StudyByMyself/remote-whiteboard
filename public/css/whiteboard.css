@@ -1,8 +1,11 @@
+body {
+    padding-top: 70px;
+}
+
 .output-well{
     height:auto;
     max-height: 600px;
     overflow: auto;
-    margin-top: 20px;
 }
 
 pre {

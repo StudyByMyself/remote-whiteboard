@@ -1,0 +1,37 @@
+<template name="output">
+  <div class="well output-well">
+  <pre>
+    <code class="java">{{{codeToLight script type}}}</code>
+  </pre>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <th>Title</th>
+        <!--<th>Create</th>-->
+        <th>Last update</th>
+        <th>Operate</th>
+      </thead>
+      <tbody>
+      {{#each subScripts}}
+      <tr>
+        <td>{{title}}</td>
+        <!--<td>{{moment timestamp 'YY-MM-DD HH:mm:ss'}}</td>-->
+        <td>{{moment update_timestamp 'YY-MM-DD HH:mm:ss'}}</td>
+        <td>
+          <button class="btn btn-danger" id="delete">
+              <span class="glyphicon glyphicon-trash"></span> 删除
+          </button>
+          <button class="btn btn-success" id="export">
+            <span class="glyphicon glyphicon-cloud-download"></span> 导出
+          </button>
+          <button class="btn" id="edit">
+            <span class="glyphicon glyphicon-edit"></span> 编辑
+          </button>
+        </td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

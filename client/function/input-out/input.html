@@ -1,0 +1,28 @@
+<template name="input">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-well">
+            <textarea id="input-area" class="form-control input-textarea">{{script}}</textarea>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <input type="text" value="{{getTitle subscript_id}}" id="title" class="form-control" placeholder="标题">
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+          <button id="save" class="btn btn-success">
+            <span class="glyphicon glyphicon-floppy-disk"></span> 存档
+          </button>
+          <button id="new" class="btn btn-primary">
+            <span class="glyphicon glyphicon-file"></span> 新建
+          </button>
+          <button id="sync" class="btn btn-warning">
+            <span class="glyphicon glyphicon-transfer"></span> 同步
+          </button>
+          <button id="saveas" class="btn btn-primary">
+            <span class="glyphicon glyphicon-floppy-save"></span> 另存
+          </button>
+        </div>
+      </div>
+    </div>
+</template>
