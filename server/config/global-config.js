@@ -17,7 +17,7 @@ var map = {
                 "content-max-length":3000 //每个文件的最长记录
 
             },
-            "title-length":20 //标题长度
+            "title-length":36 //标题长度
         }
     }
 }
