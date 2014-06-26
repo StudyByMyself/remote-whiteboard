@@ -1,14 +1,13 @@
 <template name="output">
-  <div class="well output-well">
-  <pre>
-    <code class="java">{{{codeToLight script type}}}</code>
+  <div class="output-well">
+  <pre class="language-{{type}}" data-start="-5">
+    <code class="language-{{type}}">{{{codeToLight script type}}}</code>
   </pre>
   </div>
   <div>
     <table class="table">
       <thead>
         <th>Title</th>
-        <!--<th>Create</th>-->
         <th>Last update</th>
         <th>Operate</th>
       </thead>

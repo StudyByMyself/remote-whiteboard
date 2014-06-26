@@ -8,10 +8,6 @@ body {
     overflow: auto;
 }
 
-pre {
-	border:0;
-}
-
 .input-well{
     width: auto;
     padding: 0;
@@ -29,4 +25,9 @@ textarea.input-textarea {
     overflow: auto;
     min-width: 350px;
     max-width: 98%;
+}
+
+pre{
+    padding-top: 0 !important;
+
 }

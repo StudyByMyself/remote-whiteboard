@@ -1,6 +1,9 @@
 Template.input.events({
 	"keyup textarea":function(e,t){
-        InputsDao.update(this._id,e.currentTarget.value);
+        InputsDao.update(this._id,e.currentTarget.value,function(){
+            Prism.highlightAll()
+        });
+
 	},
 	"keydown textarea":function(e,t){
 		var keyCode = e.keyCode || e.which;
