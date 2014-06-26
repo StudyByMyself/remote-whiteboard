@@ -1,7 +1,7 @@
 Template.output.codeToLight = (script,type) ->
   type = type or 'java'
   script = script or  ''
-  Prism.highlight "\n#{script}", Prism.languages[type]
+  Prism.highlightExtra "\n#{script}", Prism.languages[type]
 
 Template.output.events
   "click #edit": (e,template) ->
