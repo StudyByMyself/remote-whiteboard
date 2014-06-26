@@ -277,15 +277,12 @@ var Prism = (function(){
 
             add: function (name, callback) {
                 var hooks = _.hooks.all;
-
                 hooks[name] = hooks[name] || [];
-
                 hooks[name].push(callback);
             },
 
             run: function (name, env) {
                 var callbacks = _.hooks.all[name];
-
                 if (!callbacks || !callbacks.length) {
                     return;
                 }

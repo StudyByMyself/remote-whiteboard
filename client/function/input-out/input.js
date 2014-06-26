@@ -1,8 +1,6 @@
 Template.input.events({
 	"keyup textarea":function(e,t){
-        InputsDao.update(this._id,e.currentTarget.value,function(){
-            Prism.highlightAll()
-        });
+        InputsDao.update(this._id,e.currentTarget.value);
 
 	},
 	"keydown textarea":function(e,t){
