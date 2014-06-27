@@ -1,8 +1,14 @@
 <Template name="index">
-    {{#if _id}}
-        {{hightlight script type}}
-    {{else}}
-        <h2>Welcome to WhiteBorad</h2>
-        <h3>share your code, <a href="/scripts">now</a></h3>
-    {{/if}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <h1>Welcome to WhiteBorad ! </h1>
+          <p>这是一个实时共享编辑的工具.主要于代码交流,讨论时,不用去代码截屏,赋值或者远程桌面.提供实时的代码,
+            看大神如何修改编写代码</p>
+          <p class="pull-right"><a class="btn btn-primary btn-lg" href="/scripts" role="button">Edit now</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Template>
