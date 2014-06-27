@@ -1,8 +1,3 @@
-Template.output.codeToLight = (script,type) ->
-  type = type or 'java'
-  script = script or  ''
-  Prism.highlightExtra "\n#{script}", Prism.languages[type]
-
 Template.output.events
   "click #edit": (e,template) ->
     parent_id = template.data._id

@@ -9,11 +9,13 @@ Router.configure
 Router.onBeforeAction 'dataNotFound'
 
 Router.map () ->
-    @route 'index',
+    @route 'scripts',
         path:'/scripts/:id'
+    @route 'index'
+        path:'/:id'
 
 
-IndexController = RouteController.extend
+ScriptsController = RouteController.extend
     template:"Input-Output"
     layoutTemplate:"main-layout"
     waitOn: () ->
@@ -21,4 +23,10 @@ IndexController = RouteController.extend
     data: () ->
         Inputs.findOne({webId:this.params.id})
 
-@IndexController = IndexController
+IndexController = RouteController.extend
+    template: 'index'
+    layoutTemplate:"main-layout"
+    data: () ->
+        id = this.params.id
+        return input = Inputs.findOne(id) if id
+@ScriptsController = ScriptsController
