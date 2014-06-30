@@ -11,7 +11,7 @@ body {
 .input-well{
     width: auto;
     padding: 0;
-    height:auto;
+    height:600px;
     max-height: 700px;
     overflow: auto;
     margin: 20px 0 20px 0;
@@ -25,4 +25,13 @@ textarea.input-textarea {
     overflow: auto;
     min-width: 350px;
     max-width: 98%;
+}
+
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size:18px;
 }

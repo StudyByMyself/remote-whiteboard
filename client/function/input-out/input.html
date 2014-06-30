@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="input-well">
-            <textarea id="input-area" class="form-control input-textarea">{{script}}</textarea>
+            <div id="editor">var abc = function(){}</div>
           </div>
         </div>
         <div class="col-md-4">
@@ -19,9 +19,19 @@
           <button id="sync" class="btn btn-warning">
             <span class="glyphicon glyphicon-transfer"></span> 同步
           </button>
-          <button id="saveas" class="btn btn-primary">
+          <button id="saveAs" class="btn btn-primary">
             <span class="glyphicon glyphicon-floppy-save"></span> 另存
           </button>
+          <select class="form-control" id="chooseTheme">
+            {{#each themes}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+          <select class="form-control" id="chooseMode">
+            {{#each modes}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
         </div>
       </div>
     </div>
