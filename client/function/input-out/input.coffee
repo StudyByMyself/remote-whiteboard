@@ -1,10 +1,11 @@
 Editor = {}
 
-Editor.init = ()->
+Editor.init = (script)->
   editor = ace.edit "editor"
   Editor._ = editor
   Editor.setTheme "twilight"
   Editor.setMode "javascript"
+  editor.setValue script if script
 
 Editor.setTheme = (theme) ->
   $.getScript("/ace/src/theme-#{theme}.js")
@@ -24,9 +25,16 @@ Editor.setMode = (mode) ->
       alert '加载语言失败'
     )
 
+Editor.getContent = () ->
+  Editor._.getValue()
+
+Editor.setContent = (script) ->
+  Editor._.setValue(script)
+
 Template.input.events
   "keyup textarea": (e,t) ->
-    #InputsDao.update @._id, e.currentTarget.value
+    val = Editor.getContent()
+    InputsDao.update @._id, val
 
   "click button#save": (event,template) ->
     current = Router.current()

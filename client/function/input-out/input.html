@@ -2,8 +2,28 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <label class="control-label">皮肤:</label>
+              <select class="form-control" id="chooseTheme">
+                {{#each themes}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="control-label">语言:</label>
+              <select class="form-control" id="chooseMode">
+                {{#each modes}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-12">
           <div class="input-well">
-            <div id="editor">var abc = function(){}</div>
+            <div id="editor">{{script}}</div>
           </div>
         </div>
         <div class="col-md-4">
@@ -22,16 +42,6 @@
           <button id="saveAs" class="btn btn-primary">
             <span class="glyphicon glyphicon-floppy-save"></span> 另存
           </button>
-          <select class="form-control" id="chooseTheme">
-            {{#each themes}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-          </select>
-          <select class="form-control" id="chooseMode">
-            {{#each modes}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-          </select>
         </div>
       </div>
     </div>
