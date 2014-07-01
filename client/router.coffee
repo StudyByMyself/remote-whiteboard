@@ -1,6 +1,7 @@
 ###
 定义模板未找到时的渲染的页面
 ###
+$.ajaxSetup cache: true
 
 Router.configure
   notFoundTemplate: 'notfound' # this will render
@@ -22,8 +23,9 @@ ScriptsController = RouteController.extend
   waitOn: () ->
     [Meteor.subscribe('inputs',this.params.id),Meteor.subscribe('sub_inputs',this.params.id)]
   action: () ->
-    if(this.ready())
-      this.render()
+    _this = @
+    if(_this.ready())
+      _this.render()
     else
       this.render('loading');
   data: () ->
@@ -41,7 +43,7 @@ PreviewController = RouteController.extend
   waitOn: ()->
   data: ()->
     id = @params.id
-    input = SubInputs.findOne id if id
+    SubInputs.findOne id if id
 
 @ScriptsController = ScriptsController
 @IndexController = IndexController

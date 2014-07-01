@@ -1,39 +1,8 @@
-Editor = {}
-
-Editor.init = (script)->
-  editor = ace.edit "editor"
-  Editor._ = editor
-  Editor.setTheme "twilight"
-  Editor.setMode "javascript"
-  editor.setValue script if script
-
-Editor.setTheme = (theme) ->
-  $.getScript("/ace/src/theme-#{theme}.js")
-    .done(() ->
-      Editor._.setTheme "ace/theme/#{theme}"
-    )
-    .fail(()->
-      alert '获取皮肤失败'
-    )
-
-Editor.setMode = (mode) ->
-  $.getScript("/ace/src/mode-#{mode}.js")
-    .done(() ->
-      Mode = require("ace/mode/#{mode}").Mode
-      Editor._.getSession().setMode(new Mode)
-    ).fail(()->
-      alert '加载语言失败'
-    )
-
-Editor.getContent = () ->
-  Editor._.getValue()
-
-Editor.setContent = (script) ->
-  Editor._.setValue(script)
+editor = null
 
 Template.input.events
   "keyup textarea": (e,t) ->
-    val = Editor.getContent()
+    val = editor.get()
     InputsDao.update @._id, val
 
   "click button#save": (event,template) ->
@@ -62,18 +31,18 @@ Template.input.events
     InputsDao.insertSubScript web_id,script,title if web_id
 
   "change select#chooseTheme":(e,t) ->
-    Editor.setTheme(e.currentTarget.value)
+    editor.setTheme(e.currentTarget.value)
 
   "change select#chooseMode":(e,t) ->
-    Editor.setMode(e.currentTarget.value)
+    editor.setMode(e.currentTarget.value)
 
 Template.input.getTitle = (subid) ->
     sub = SubInputs.findOne subid
     sub and sub.title ? ""
 
 Template.input.rendered = () ->
-  Editor.init()
-  $.ajaxSetup cache: true
+  editor = new Editor({id:"editor",src:"/ace/src/"})
+  editor.init('',"twilight","javascript")
 
 Template.input.themes = () ->
   [
