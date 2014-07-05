@@ -9,6 +9,7 @@ Router.configure
 #当路由data返回数据为空时,回到404
 Router.onBeforeAction 'dataNotFound'
 Router.onBeforeAction 'loading'
+
 Router.map () ->
   @route 'scripts',
     path: '/scripts/:id'
