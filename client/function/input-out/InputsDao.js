@@ -35,6 +35,7 @@ InputsDao.insertSubScript = function(webId,script,title){
     })
 }
 
+//更新 子文档
 InputsDao.updateSubScript = function(subId,script,title){
     title = (title == null || (title = title.replace(/(^\s*)|(\s*$)/g, "")) === "")
         ? "未知标题"
@@ -61,11 +62,26 @@ InputsDao.new = function(_id){
         $set:{
             script:"",
             title:"",
-            subscript_id:""
+            subscript_id:"",
+            type: "java"
         }
     },function(){});
 }
 
 InputsDao.export = function(_id){
   window.open("/scripts/"+_id+"/export",false)
+}
+
+//更新脚本的 类型
+InputsDao.updateDocType = function(options,type){
+  var parents_id = options.parent_id;
+  var subscript_id = options.subscript_id;
+  Inputs.update(parents_id,{
+      $set:{
+        type:type
+      }
+    }
+
+  )
+
 }

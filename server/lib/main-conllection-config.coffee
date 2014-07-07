@@ -29,6 +29,8 @@ InpustModule =
     if subscript_id.length > 36
       return false
     true
+  type: (type) ->
+    true
 
 Inputs.allow
   update : (userId, doc, fields, modifier) ->
@@ -77,6 +79,8 @@ SubInputsModule =
       return false
     if webId.length > 36
       return false
+    true
+  type: (type) ->
     true
 
 SubInputs.allow

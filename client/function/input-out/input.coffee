@@ -1,5 +1,4 @@
 editor = null
-
 Template.input.events
   "keyup textarea": (e,t) ->
     val = editor.get()
@@ -11,7 +10,7 @@ Template.input.events
     return if not @script? or (not @script.length)
     title = template.find("#title").value
     subscript_id = @subscript_id
-    script = template.find("#input-area").value
+    script = editor.get()
     if SubInputs.findOne subscript_id
         InputsDao.updateSubScript subscript_id,script,title
     else
@@ -31,18 +30,25 @@ Template.input.events
     InputsDao.insertSubScript web_id,script,title if web_id
 
   "change select#chooseTheme":(e,t) ->
-    editor.setTheme(e.currentTarget.value)
+    editor.setTheme e.currentTarget.value
 
   "change select#chooseMode":(e,t) ->
-    editor.setMode(e.currentTarget.value)
+    parent_id = t.data._id
+    subscript_id = @subscript_id
+    mode = e.currentTarget.value
+    editor.setMode mode
+    InputsDao.updateDocType
+      parent_id: parent_id, subscript_id: subscript_id
+      ,mode
+
 
 Template.input.getTitle = (subid) ->
     sub = SubInputs.findOne subid
     sub and sub.title ? ""
 
 Template.input.rendered = () ->
-  editor = new Editor({id:"editor",src:"/ace/src/"})
-  editor.init('',"twilight","javascript")
+  editor = new Editor id:"editor",src:"/ace/src/"
+  editor.init '',"twilight",@.data.type
 
 Template.input.themes = () ->
   [
@@ -54,11 +60,13 @@ Template.input.themes = () ->
     "solarized_dark","solarized_light","terminal","textmate","tomorrow",
     "twilight","xcode"
   ]
-
+###
+  "perl","r","sh","html_ruby","jack","jade","dart",
+    "django","ejs","haskell","haxe","json","jsp","less","lisp",
+    "lua","makefile","mysql",
+###
 Template.input.modes =() ->
   [
-    "javascript","java","c_cpp","perl","php","python","r","ruby","sh",
-    "coffee","css","html","html_ruby","jack","jade","dart",
-    "django","ejs","golang","haskell","haxe","json","jsp","less","lisp",
-    "lua","makefile","mysql","objectivec","sql"
+    "javascript","java","c_cpp","php","python","ruby","golang",
+    "coffee","css","html","objectivec","sql"
   ]

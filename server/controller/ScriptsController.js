@@ -28,7 +28,8 @@ var generateNewRecord = function(ip){
         webId:webId,
         ip:ip,
         timestamp:new Date().getTime(),
-        script:"",type:"java"
+        script:"",
+        type:"java"
     },function(error,_id){
     })
     return webId;

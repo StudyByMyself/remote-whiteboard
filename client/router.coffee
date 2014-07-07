@@ -1,7 +1,6 @@
 ###
 定义模板未找到时的渲染的页面
 ###
-$.ajaxSetup cache: true
 
 Router.configure
   notFoundTemplate: 'notfound' # this will render
