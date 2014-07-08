@@ -1,0 +1,18 @@
+<template name="language_model">
+  <div class="form-group">
+    <label class="control-label">皮肤:</label>
+    <select class="form-control" id="chooseTheme">
+      {{#each themes}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="control-label">语言:</label>
+    <select class="form-control" id="chooseMode">
+      {{#each modes}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+</template>

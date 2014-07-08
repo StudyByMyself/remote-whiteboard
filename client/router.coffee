@@ -18,8 +18,8 @@ Router.map () ->
     path: '/'
 
 ScriptsController = RouteController.extend
-  template:"Input-Output"
-  layoutTemplate:"main-layout"
+  template:"Input_Output"
+  #layoutTemplate:"main-layout"
   waitOn: () ->
     [Meteor.subscribe('inputs',this.params.id),Meteor.subscribe('sub_inputs',this.params.id)]
   action: () ->

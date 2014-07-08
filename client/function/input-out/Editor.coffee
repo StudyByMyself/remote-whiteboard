@@ -9,21 +9,21 @@ class Editor
   setTheme: (theme) ->
     _ = @_
     src = @src
-    $.getScript("#{src}theme-#{theme}.js")
-    .done(() ->
+    $.getScript( "#{src}theme-#{theme}.js", () ->
       _.setTheme "ace/theme/#{theme}"
     )
-    .fail(()->
+    .fail( ( jqxhr, settings, exception )->
+      console.log exception
       alert '获取皮肤失败'
     )
   setMode: (mode) ->
     _ = @_
     src = @src
-    $.getScript("#{src}mode-#{mode}.js")
-    .done(() ->
-      Mode = require("ace/mode/#{mode}").Mode
-      _.getSession().setMode(new Mode)
-    ).fail(()->
+    $.getScript( "#{src}mode-#{mode}.js", () ->
+      Mode = require( "ace/mode/#{mode}").Mode
+      _.getSession().setMode( new Mode )
+    ).fail( ( jqxhr, settings, exception ) ->
+      console.log exception
       alert '加载语言失败'
     )
   get: () ->

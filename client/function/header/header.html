@@ -1,6 +1,6 @@
 <template name="header">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -10,12 +10,12 @@
       </button>
       <a class="navbar-brand" href="/">white board</a>
     </div>
-
     <form class="navbar-form navbar-right">
-      <div class="form-group">
-        <input type="text" class="form-control" id="share-input">
-      </div>
+      {{> language_model}}
       <button class="btn btn-default" id="sharr-btn">分享链接</button>
+      <div class="form-group">
+        <input type="hidden" class="form-control" id="share-input">
+      </div>
     </form>
 
   </div>
